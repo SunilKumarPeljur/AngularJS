@@ -3,17 +3,17 @@ angular.module('MyApp.controllers')
         function ($scope, MyDataService) {
             'use strict';
 
-            $scope.names = MyDataService.getNames();
+            this.names = MyDataService.getNames();
 
-            $scope.addName = function () {
+            this.addName = function () {
                 //prompt('Please enter a name');
-                if ($scope.newName) {
-                    MyDataService.addName($scope.newName);
-                    $scope.newName = '';
+                if (this.newName) {
+                    MyDataService.addName(this.newName);
+                    this.newName = '';
                 }
             }
 
-            $scope.removeName = function () {
+            this.removeName = function () {
                 var index = document.querySelector('#nameList').options.selectedIndex;
                 if (index !== -1) {
                     MyDataService.removeName(index);
