@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Angular JS</title>
+
+</head>
+
+<body>
+
+    <div ng-controller="FirstController">
+        <h3>First Controller</h3>
+        <p>{{model.now}}</p>
+    </div>
+
+    <div ng-controller="MyDataController">
+        <select ng-options="name as name for name in names" ng-model="selectedName" ng-init="selectedName=names[0]" id="nameList">
+        </select>
+        <br/>
+        <label>Please enter a name</label>
+        <input type="text" ng-model="newName" ng-Init="newName=''" />
+        <button ng-click="addName()">Add Name</button>
+        <button ng-click="removeName()">Remove Name</button>
+
+    </div>
+
+    <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script type="application/javascript" src="app.js"></script>
+    <script type="application/javascript" src="scripts/controllers/FirstCtrl.js"></script>
+    <script type="application/javascript" src="scripts/services/MyDataService.js"></script>
+    <script type="application/javascript" src="scripts/controllers/MyDataController.js"></script>
+</body>
+
+</html>
