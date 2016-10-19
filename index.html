@@ -8,63 +8,77 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Angular JS</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid.css" />
+	<title>New HMTL document by NewJect</title>
+	<style>
+		.gridStyle {
+			border: 1px solid rgb(212, 212, 212);
+			width: 800px;
+			height: 300px;
+		}
+	</style>
 
 </head>
 
 <body>
 
-	<div ng-controller="FirstController">
-		<h3>First Controller</h3>
-		<p>{{model.now}}</p>
-	</div>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" ui-sref="players">Players</a>
+			</div>
 
-	<div ng-controller="MyDataController as myDataCtrl">
-		<select ng-options="name as name for name in myDataCtrl.names" ng-model="myDataCtrl.selectedName" ng-init="myDataCtrl.selectedName=myDataCtrl.names[0]" id="nameList">
-		</select>
-		<br/>
-		<label>Please enter a name</label>
-		<input type="text" ng-model="myDataCtrl.newName" ng-Init="myDataCtrl.newName=''" />
-		<button ng-click="myDataCtrl.addName()">Add Name</button>
-		<button ng-click="myDataCtrl.removeName()">Remove Name</button>
-
-	</div>
-
-	<div ng-controller="PlayerRestResolvePromiseController as playerCtrl">
-		<div animate-this ng-repeat="player in playerCtrl.players track by player.id">
-			<player-info-card player="player"></player-info-card>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a ui-sref="players">Home 
+			</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
 		</div>
-	</div>
+		<!-- /.container-fluid -->
+	</nav>
+	<div class="container">
+		<div class="row top-buffer">
 
-	<div ng-controller="RestController as restCtrl">
+			<div class="col-xs-8 col-xs-offset-2">
+				<div ui-view></div>
 
+			</div>
+		</div>
 	</div>
 
 	<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.12/jquery.transit.min.js"></script>
 	<script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 	<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid.min.js"></script>
 
 	<script type="application/javascript" src="app.js"></script>
-	<script type="application/javascript" src="scripts/controllers/FirstCtrl.js"></script>
-	<script type="application/javascript" src="scripts/services/MyDataService.js"></script>
-	<script type="application/javascript" src="scripts/controllers/MyDataController.js"></script>
-	<script type="application/javascript" src="scripts/directives/Animation.js"></script>
-	<script type="application/javascript" src="scripts/services/PlayerService.js"></script>
-	<script type="application/javascript" src="scripts/directives/PlayerInfoCard.js"></script>
-	<script type="application/javascript" src="scripts/controllers/PlayerController.js">
-	</script>
-	<script type="application/javascript" src="scripts/services/AsyncPlayerService.js"></script>
-	<script type="application/javascript" src="scripts/controllers/AsyncPlayerController.js">
-	</script>
-	<script type="application/javascript" src="scripts/services/PlayerRestService.js"></script>
-	<script type="application/javascript" src="scripts/controllers/PlayerRestController.js">
-	</script>
-	<script type="application/javascript" src="scripts/services/PlayerRestResolvePromiseService.js"></script>
-	<script type="application/javascript" src="scripts/controllers/PlayerRestResolvePromiseController.js">
-	</script>
-	<script src="scripts/services/RestService.js"></script>
-	<script src="scripts/controllers/RestController.js"></script>
+	<script src="scripts/services/Player.js"></script>
+	<script src="scripts/controllers/PlayersListController.js"></script>
+	<script src="scripts/controllers/AddPlayerController.js"></script>
+	<script src="scripts/controllers/UpdatePlayerController.js"></script>
+	<script src="scripts/controllers/PlayerDetailsController.js"></script>
 </body>
 
 </html>

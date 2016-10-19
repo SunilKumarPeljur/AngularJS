@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Angular JS</title>
+
+</head>
+
+<body>
+
+	<div ng-controller="FirstController">
+		<h3>First Controller</h3>
+		<p>{{model.now}}</p>
+	</div>
+
+	<div ng-controller="MyDataController as myDataCtrl">
+		<select ng-options="name as name for name in myDataCtrl.names" ng-model="myDataCtrl.selectedName" ng-init="myDataCtrl.selectedName=myDataCtrl.names[0]" id="nameList">
+		</select>
+		<br/>
+		<label>Please enter a name</label>
+		<input type="text" ng-model="myDataCtrl.newName" ng-Init="myDataCtrl.newName=''" />
+		<button ng-click="myDataCtrl.addName()">Add Name</button>
+		<button ng-click="myDataCtrl.removeName()">Remove Name</button>
+
+	</div>
+
+	<div ng-controller="PlayerRestResolvePromiseController as playerCtrl">
+		<div animate-this ng-repeat="player in playerCtrl.players track by player.id">
+			<player-info-card player="player"></player-info-card>
+		</div>
+	</div>
+
+	<div ng-controller="RestController as restCtrl">
+
+	</div>
+
+	<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.12/jquery.transit.min.js"></script>
+	<script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+
+	<script type="application/javascript" src="app.js"></script>
+	<script type="application/javascript" src="scripts/controllers/FirstCtrl.js"></script>
+	<script type="application/javascript" src="scripts/services/MyDataService.js"></script>
+	<script type="application/javascript" src="scripts/controllers/MyDataController.js"></script>
+	<script type="application/javascript" src="scripts/directives/Animation.js"></script>
+	<script type="application/javascript" src="scripts/services/PlayerService.js"></script>
+	<script type="application/javascript" src="scripts/directives/PlayerInfoCard.js"></script>
+	<script type="application/javascript" src="scripts/controllers/PlayerController.js">
+	</script>
+	<script type="application/javascript" src="scripts/services/AsyncPlayerService.js"></script>
+	<script type="application/javascript" src="scripts/controllers/AsyncPlayerController.js">
+	</script>
+	<script type="application/javascript" src="scripts/services/PlayerRestService.js"></script>
+	<script type="application/javascript" src="scripts/controllers/PlayerRestController.js">
+	</script>
+	<script type="application/javascript" src="scripts/services/PlayerRestResolvePromiseService.js"></script>
+	<script type="application/javascript" src="scripts/controllers/PlayerRestResolvePromiseController.js">
+	</script>
+	<script src="scripts/services/RestService.js"></script>
+	<script src="scripts/controllers/RestController.js"></script>
+
+	<script src="scripts/services/Player.js"></script>
+	<script src="scripts/controllers/PlayersListController.js"></script>
+
+</body>
+
+</html>
